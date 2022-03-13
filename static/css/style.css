@@ -1,0 +1,18 @@
+
+.node {
+    cursor: default;
+    background-color: #FDF6EC; !important;
+    border-color: lightgray;
+    border-style: solid;
+    border-width: 1px;
+    padding: 14px 14px;
+    flex-direction: column;
+    width: 100%;
+    distance: Infinity;
+    parent: none;
+}
+
+.node:hover {
+    background-color: #31363F;
+    cursor: default;
+}
