@@ -1,7 +1,7 @@
 
 .node {
     cursor: default;
-    background-color: #FDF6EC; !important;
+    background-color: #FDF6EC;
     border-color: lightgray;
     border-style: solid;
     border-width: 1px;
@@ -16,3 +16,29 @@
     background-color: #31363F;
     cursor: default;
 }
+
+.popup {
+    padding: 5px;
+    box-shadow: none;
+    background-color: #31363F;
+    border-color: #EA857A;
+    border-width: 0px; 
+    border-radius: 12px;
+    height: 70px;
+    color: white;
+    font-family: Garamond, monospace;
+  }
+  
+.closebtn {
+    margin-right: 10px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+  }
+  
+.closebtn:hover {
+    color: #31363F;
+  }
