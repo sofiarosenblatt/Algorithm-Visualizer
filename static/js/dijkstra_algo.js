@@ -1,7 +1,29 @@
+function close_popup() {
+    document.getElementById("right-side").style.borderWidth = '0px';
+    document.getElementById("popup-text").textContent = '';
+    document.getElementById("closebtn").style.visibility = 'hidden'
+}
 
-let button_pressed = '';
+function missing_node(node) {
+    if (node === 'source') {
+        document.getElementById("right-side").style.borderWidth = '1px';
+        document.getElementById("closebtn").style.visibility = 'visible';
+        document.getElementById("popup-text").textContent = 'Select a source node';
+    }
+    else if (node === 'target') {
+        document.getElementById("right-side").style.borderWidth = '1px';
+        document.getElementById("closebtn").style.visibility = 'visible';
+        document.getElementById("popup-text").textContent = 'Select a target node';
+    }
+    else if (node === 'nopath') {
+        document.getElementById("right-side").style.borderWidth = '1px';
+        document.getElementById("closebtn").style.visibility = 'visible';
+        document.getElementById("popup-text").textContent = 'A path was not found';
+    }
+}
 
 // indicates which button was last pressed
+let button_pressed = '';
 function btn_pressed(id_tag) {
     button_pressed = id_tag;
 }
@@ -40,12 +62,13 @@ async function start() {
     let unexplored_set = Array.from(document.getElementsByClassName("node"));
 
     if (typeof source === 'undefined') {
-        console.log("Source has not been set")
+        missing_node('source');
     }
     else if (typeof target === 'undefined') {
-        console.log("Target has not been set")
+        missing_node('target');
     }
     else {
+        close_popup();
         source.setAttribute("data-distance", 0);
         while (unexplored_set.length > 0){
             let dist = 10000000;
@@ -69,7 +92,7 @@ async function start() {
                 current_node.style.backgroundColor = "#C3CFD7";
             }
             else if (!unexplored_set.includes(current_node)) {
-                console.log("path not found");
+                missing_node('nopath');
                 break;
             }
 
