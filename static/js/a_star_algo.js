@@ -68,10 +68,10 @@ async function start() {
     let unvisited = Array.from(document.getElementsByClassName("node"));
     let visited = [];
 
-    if (typeof source === 'undefined') {
+    if ((typeof source === 'undefined')||(source === null)) {
         missing_node('source');
     }
-    else if (typeof target === 'undefined') {
+    else if ((typeof target === 'undefined')||(target  === null)) {
         missing_node('target');
     }
     else {
