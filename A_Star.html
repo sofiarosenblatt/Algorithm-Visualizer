@@ -87,7 +87,10 @@
             << Go Back</button>
         </form>
         <h1 style="align-self: center; color: white; font-size: xx-large; font-family: Garamond, monospace">A* Search Algorithm Visualizer</h1>
-        <div class="d-flex" style="width: 200px; margin-right: 40px"></div>
+        <button class="popup d-flex align-items-center justify-content-between" id="right-side" style="width: 200px; margin-right: 40px;" onclick="close_popup()">
+            <p id="popup-text" style="padding-top: 8%;"></p> 
+            <span class="closebtn" id="closebtn" style="visibility: hidden;" onclick="close_popup()">&times;</span>
+        </button>
     </div>
 
     <!-- Orange line -->
