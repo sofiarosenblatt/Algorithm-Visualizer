@@ -12,18 +12,24 @@
 <script>function change_pic(id_tag) {
 
     if (button_pressed === 'set-source') {
-        if (typeof source !== 'undefined') {
+        if ((typeof source !== 'undefined')&&(source !== null)) {
             console.log('replaced');
             source.style.backgroundImage = 'none';
+        }
+        if (((typeof target !== 'undefined')&&(target !== null))&&(target === document.getElementById(id_tag))){
+            target = null;
         }
         document.getElementById(id_tag).style.backgroundImage = "url('static/images/source.png')";
         source = document.getElementById(id_tag)
         button_pressed = ''
     }
     else if (button_pressed === 'set-target') {
-        if (typeof target !== 'undefined') {
+        if ((typeof target !== 'undefined')&&(target !== null)) {
             console.log('replaced');
             target.style.backgroundImage = 'none';
+        }
+        if (((typeof source !== 'undefined')&&(source !== null))&&(source === document.getElementById(id_tag))){
+            source = null;
         }
         document.getElementById(id_tag).style.backgroundImage = "url('static/images/target.png')"
         target = document.getElementById(id_tag);
@@ -45,6 +51,16 @@
                 }
             }
             document.getElementById(id_tag).style.backgroundImage = "url('static/images/weight.png')";
+        }
+        else if (((typeof source !== 'undefined')&&(source !== null)) && (source === document.getElementById(id_tag))) {
+            source = null;
+            document.getElementById(id_tag).style.backgroundImage = "url('static/images/weight.png')";
+            weights.push(document.getElementById(id_tag));
+        }
+        else if (((typeof target !== 'undefined')&&(target !== null)) && (target === document.getElementById(id_tag))) {
+            target = null;
+            document.getElementById(id_tag).style.backgroundImage = "url('static/images/weight.png')";
+            weights.push(document.getElementById(id_tag));
         }
         else {
         document.getElementById(id_tag).style.backgroundImage = 'none';
@@ -68,6 +84,16 @@
                 }
             }
             document.getElementById(id_tag).style.backgroundImage = "url('static/images/boundary.png')";
+        }
+        else if (((typeof source !== 'undefined')&&(source !== null)) && (source === document.getElementById(id_tag))) {
+            source = null;
+            document.getElementById(id_tag).style.backgroundImage = "url('static/images/boundary.png')";
+            boundaries.push(document.getElementById(id_tag));
+        }
+        else if (((typeof target !== 'undefined')&&(target !== null)) && (target === document.getElementById(id_tag))) {
+            target = null;
+            document.getElementById(id_tag).style.backgroundImage = "url('static/images/boundary.png')";
+            boundaries.push(document.getElementById(id_tag));
         }
         else {
         document.getElementById(id_tag).style.backgroundImage = "url('static/images/boundary.png')";
